@@ -32,3 +32,28 @@ Ststus GetElem(LinkList L, int i, ElemType *e)
     return OK;
 }
 //最坏情况 时间复杂度为O(n)
+/*单链表的插入Status ListInsert（）
+/*
+初始条件：顺序线性表L已存在，1<=i<=ListLength（L）
+操作结果：在L中第i个结点位置之前插入新的数据元素e，L的长度加1*/
+Status ListInsert(LinkList *L, int i, ElemType e)
+{
+    //ElemType temp;
+    LinkList s;
+    //if(!GetElem(L, i-1, temp)) 逻辑混乱，冷静后再思考
+    LinkList p;
+    p = L
+    int j=1;
+    while(p&&j<i)
+    {
+        p=p.next;
+        ++j;
+    }
+    if(!p||j>i)
+        return ERROR;   //第 i 个结点不存在
+    s=(LinkList)malloc(sizeof(Node));
+    s->data = e;
+    s.n
+    
+
+}
