@@ -9,11 +9,11 @@
 #define TRUE 1
 #define FALSE 0
 
-/*ÏßĞÔ±íµÄË³Ğò´¢´æ½á¹¹ÀàĞÍÃèÊö*/
-#define MAXSIZE 20 //´¢´æ¿Õ¼ä³õÊ¼·ÖÅäÁ¿
+/*çº¿æ€§è¡¨çš„é¡ºåºå‚¨å­˜ç»“æ„ç±»å‹æè¿°*/
+#define MAXSIZE 20 //å‚¨å­˜ç©ºé—´åˆå§‹åˆ†é…é‡
 
-typedef int ElemType;	 //¼ÙÉèÔªËØÀàĞÍÎª int
-typedef int Status;       //Statusº¯ÊıÀàĞÍ£¬ÆäÖµÎª×´Ì¬´úÂëeg£ºOK
+typedef int ElemType;	 //å‡è®¾å…ƒç´ ç±»å‹ä¸º int
+typedef int Status;       //Statuså‡½æ•°ç±»å‹ï¼Œå…¶å€¼ä¸ºçŠ¶æ€ä»£ç egï¼šOK
 
 Status visit(ElemType e)
 {
@@ -25,77 +25,77 @@ typedef struct
 {
 	ElemType data[MAXSIZE];
 	int length;
-} SqList;       //¾²Ì¬·ÖÅä
+} SqList;       //é™æ€åˆ†é…
 
 /*
 #define INITSIZE 20
 typedef struct
 {
-	ElemType *data;     //Ö¸Ê¾¶¯Ì¬·ÖÅäÊı×éµÄÖ¸Õë
-	int MAXSIZE,length; //Êı×éµÄ×î´óÈİÁ¿ºÍµ±Ç°¸öÊı
-}SeqList;               //¶¯Ì¬·ÖÅäÊı×éË³Ğò±íµÄÀàĞÍ¶¨Òå
+	ElemType *data;     //æŒ‡ç¤ºåŠ¨æ€åˆ†é…æ•°ç»„çš„æŒ‡é’ˆ
+	int MAXSIZE,length; //æ•°ç»„çš„æœ€å¤§å®¹é‡å’Œå½“å‰ä¸ªæ•°
+}SeqList;               //åŠ¨æ€åˆ†é…æ•°ç»„é¡ºåºè¡¨çš„ç±»å‹å®šä¹‰
 */
 //L.data=(ElemType*)malloc(sizeof(ElemType)*INITSIZE;
 //L.data=new ElemType[INITSIZE];
 
-/******************º¯ÊıÉùÃ÷*******************/
-Status InitList(SqList *L);//³õÊ¼»¯Ë³ĞòÏßĞÔ±í
-Status ListEmpty(SqList L);  //ÅĞ¿Õ²Ù×÷  ³õÊ¼Ìõ¼ş£ºË³ĞòÏßĞÔ±íÒÑ´æÔÚ
-Status ClearList(SqList *L); //ÖØÖÃ²Ù×÷  ³õÊ¼Ìõ¼ş£ºË³ĞòÏßĞÔ±íÒÑ´æÔÚ
-int ListLength(SqList L);   //È¡length
-Status GetElem(SqList L, int i, ElemType *e);//»ñÈ¡µÚi¸öÔªËØ
-int LocateElem(SqList L, ElemType e);      //ÕÒµ½ÔªËØeÔÚLÖĞµÄÎ»ÖÃ
-Status ListInsert(SqList *L, int i, ElemType e);//µÚi¸öÎ»ÖÃÖ®Ç°²åÈë²Ù×÷
-Status ListDelete(SqList *L, int i, ElemType *e);//ÔªËØÉ¾³ı
-Status ListTraverse(SqList L);       //¶ÔLµÄÃ¿¸öÊı¾İÊä³ö
-void UnionL(SqList *La, SqList Lb);  //ºÏ²¢²Ù×÷
+/******************å‡½æ•°å£°æ˜*******************/
+Status InitList(SqList *L);//åˆå§‹åŒ–é¡ºåºçº¿æ€§è¡¨
+Status ListEmpty(SqList L);  //åˆ¤ç©ºæ“ä½œ  åˆå§‹æ¡ä»¶ï¼šé¡ºåºçº¿æ€§è¡¨å·²å­˜åœ¨
+Status ClearList(SqList *L); //é‡ç½®æ“ä½œ  åˆå§‹æ¡ä»¶ï¼šé¡ºåºçº¿æ€§è¡¨å·²å­˜åœ¨
+int ListLength(SqList L);   //å–length
+Status GetElem(SqList L, int i, ElemType *e);//è·å–ç¬¬iä¸ªå…ƒç´ 
+int LocateElem(SqList L, ElemType e);      //æ‰¾åˆ°å…ƒç´ eåœ¨Lä¸­çš„ä½ç½®
+Status ListInsert(SqList *L, int i, ElemType e);//ç¬¬iä¸ªä½ç½®ä¹‹å‰æ’å…¥æ“ä½œ
+Status ListDelete(SqList *L, int i, ElemType *e);//å…ƒç´ åˆ é™¤
+Status ListTraverse(SqList L);       //å¯¹Lçš„æ¯ä¸ªæ•°æ®è¾“å‡º
+void UnionL(SqList *La, SqList Lb);  //åˆå¹¶æ“ä½œ
 
-int main()              //Êµ¼ÊÔËÓÃ
+int main()              //å®é™…è¿ç”¨
 {
 	SqList L, Lb;
-	ElemType e;     //temp£¬ÓÃÀ´´æ·ÅÈ¡µÃµÄÊı¾İÔªËØ
-	Status sta;     //×´Ì¬ÅĞ¶Ï
-	int j, k;        //Ñ­»·±äÁ¿ ºÍ Î»ÖÃ±äÁ¿
-	sta = InitList(&L);     //³õÊ¼»¯LÁ´±í
-	printf("³õÊ¼»¯Lºó£ºL.length=%d\n", L.length);
+	ElemType e;     //tempï¼Œç”¨æ¥å­˜æ”¾å–å¾—çš„æ•°æ®å…ƒç´ 
+	Status sta;     //çŠ¶æ€åˆ¤æ–­
+	int j, k;        //å¾ªç¯å˜é‡ å’Œ ä½ç½®å˜é‡
+	sta = InitList(&L);     //åˆå§‹åŒ–Lé“¾è¡¨
+	printf("åˆå§‹åŒ–Låï¼šL.length=%d\n", L.length);
 
-	//½ÓÏÂÀ´Á½²¦É§²Ù×÷
+	//æ¥ä¸‹æ¥ä¸¤æ‹¨éªšæ“ä½œ
 	for (j = 1; j <= 5; j++)
 		sta = ListInsert(&L, 1, j);
-	printf("ÔÚLµÄ±íÍ·ÒÀ´Î²åÈë1~5ºó£ºL.data=");
+	printf("åœ¨Lçš„è¡¨å¤´ä¾æ¬¡æ’å…¥1~5åï¼šL.data=");
 	ListTraverse(L);
 	printf("L.length=%d \n", L.length);
 	sta = ListEmpty(L);
-	printf("LÊÇ·ñ¿Õ£ºstatus=%d(1:ÊÇ 0:·ñ)\n", sta);
+	printf("Læ˜¯å¦ç©ºï¼šstatus=%d(1:æ˜¯ 0:å¦)\n", sta);
 
 	sta = ClearList(&L);
-	printf("LÊÇ·ñ¿Õ£ºstatus=%d(1:ÊÇ 0:·ñ)\n", sta);
+	printf("Læ˜¯å¦ç©ºï¼šstatus=%d(1:æ˜¯ 0:å¦)\n", sta);
 	for (j = 1; j <= 10; j++)
 		sta = ListInsert(&L, j, j);
-	printf("ÔÚLµÄ±íÎ²ÒÀ´Î²åÈë1~10ºó£ºL.data=");
+	printf("åœ¨Lçš„è¡¨å°¾ä¾æ¬¡æ’å…¥1~10åï¼šL.data=");
 	ListTraverse(L);
 	printf("L.length=%d \n", L.length);
 
 	GetElem(L, 5, &e);
-	printf("µÚ5¸öÔªËØµÄÖµÎª£º%d\n", e);
+	printf("ç¬¬5ä¸ªå…ƒç´ çš„å€¼ä¸ºï¼š%d\n", e);
 	for (j = 6; j <= 7; j++)
 	{
 		k = LocateElem(L, j);
 		if (k)
-			printf("µÚ%d¸öÔªËØµÄÖµÎª£º%d\n", k, j);
+			printf("ç¬¬%dä¸ªå…ƒç´ çš„å€¼ä¸ºï¼š%d\n", k, j);
 		else
-			printf("Ã»ÓĞÖµÎª%dµÄÔªËØ\n", j);
+			printf("æ²¡æœ‰å€¼ä¸º%dçš„å…ƒç´ \n", j);
 	}
 	
-	k = ListLength(L);        //±íµÄ³¤¶È
+	k = ListLength(L);        //è¡¨çš„é•¿åº¦
 	printf("length = %d\n",k);
-	//É¾³ı²Ù×÷
+	//åˆ é™¤æ“ä½œ
 	for (j = k - 4; j >= k - 5; j--)
 	{
-		sta = ListDelete(&L, j, &e);    //É¾³ıÁËµÚj¸öÊı¾İ
+		sta = ListDelete(&L, j, &e);    //åˆ é™¤äº†ç¬¬jä¸ªæ•°æ®
 		if (sta)
 		{
-			printf("É¾³ıµÄµÚ%d¸öÔªËØÎª£º%d\n", j, e);
+			printf("åˆ é™¤çš„ç¬¬%dä¸ªå…ƒç´ ä¸ºï¼š%d\n", j, e);
 		}
 		else
 			printf("Fail to delete the %dth data.\n", j);
@@ -105,8 +105,8 @@ int main()              //Êµ¼ÊÔËÓÃ
 	ListTraverse(L);
 
 	j = 5;
-	ListDelete(&L, j, &e);    //É¾³ıµÚÎå¸öÊı¾İ
-	printf("µÚ%d¸öÔªËØµÄÖµÎª£º%d\n", j,e);
+	ListDelete(&L, j, &e);    //åˆ é™¤ç¬¬äº”ä¸ªæ•°æ®
+	printf("ç¬¬%dä¸ªå…ƒç´ çš„å€¼ä¸ºï¼š%d\n", j,e);
 
 	printf("Print the datas one by one:");
 	ListTraverse(L);
@@ -125,13 +125,13 @@ int main()              //Êµ¼ÊÔËÓÃ
 }
 
 
-Status InitList(SqList *L)//³õÊ¼»¯Ë³ĞòÏßĞÔ±í
+Status InitList(SqList *L)//åˆå§‹åŒ–é¡ºåºçº¿æ€§è¡¨
 {
 	L->length = 0;
 	return OK;
 }
 
-Status ListEmpty(SqList L)  //ÅĞ¿Õ²Ù×÷  ³õÊ¼Ìõ¼ş£ºË³ĞòÏßĞÔ±íÒÑ´æÔÚ
+Status ListEmpty(SqList L)  //åˆ¤ç©ºæ“ä½œ  åˆå§‹æ¡ä»¶ï¼šé¡ºåºçº¿æ€§è¡¨å·²å­˜åœ¨
 {
 	if (L.length == 0)
 		return TRUE;
@@ -139,7 +139,7 @@ Status ListEmpty(SqList L)  //ÅĞ¿Õ²Ù×÷  ³õÊ¼Ìõ¼ş£ºË³ĞòÏßĞÔ±íÒÑ´æÔÚ
 		return FALSE;
 }
 
-Status ClearList(SqList *L) //ÖØÖÃ²Ù×÷  ³õÊ¼Ìõ¼ş£ºË³ĞòÏßĞÔ±íÒÑ´æÔÚ
+Status ClearList(SqList *L) //é‡ç½®æ“ä½œ  åˆå§‹æ¡ä»¶ï¼šé¡ºåºçº¿æ€§è¡¨å·²å­˜åœ¨
 {
 	L->length = 0;
 	return OK;
@@ -150,9 +150,9 @@ int ListLength(SqList L)
 	return L.length;
 }
 
-/*»ñÈ¡ÔªËØ²Ù×÷
-  ³õÊ¼Ìõ¼şË³ĞòÏßĞÔ±íL´æÔÚ1<=i<=ListLength(L)
-  GetElem(L, i, &e) //ÓÃe»ñÈ¡µÚiÎ»µÄÔªËØµÄÖµ*/
+/*è·å–å…ƒç´ æ“ä½œ
+  åˆå§‹æ¡ä»¶é¡ºåºçº¿æ€§è¡¨Lå­˜åœ¨1<=i<=ListLength(L)
+  GetElem(L, i, &e) //ç”¨eè·å–ç¬¬iä½çš„å…ƒç´ çš„å€¼*/
 Status GetElem(SqList L, int i, ElemType *e)
 {
 	if (L.length == 0 || i<1 || i>L.length)
@@ -160,9 +160,9 @@ Status GetElem(SqList L, int i, ElemType *e)
 	*e = L.data[i - 1];
 	return OK;
 }
-/* ³õÊ¼Ìõ¼ş£ºË³ĞòÏßĞÔ±íLÒÑ´æÔÚ */
-/* ²Ù×÷½á¹û£º·µ»ØLÖĞµÚ1¸öÓëeÂú×ã¹ØÏµµÄÊı¾İÔªËØµÄÎ»Ğò¡£
-   ÈôÕâÑùµÄÊı¾İÔªËØ²»´æÔÚ£¬Ôò·µ»ØÖµÎª0 */
+/* åˆå§‹æ¡ä»¶ï¼šé¡ºåºçº¿æ€§è¡¨Lå·²å­˜åœ¨ */
+/* æ“ä½œç»“æœï¼šè¿”å›Lä¸­ç¬¬1ä¸ªä¸eæ»¡è¶³å…³ç³»çš„æ•°æ®å…ƒç´ çš„ä½åºã€‚
+   è‹¥è¿™æ ·çš„æ•°æ®å…ƒç´ ä¸å­˜åœ¨ï¼Œåˆ™è¿”å›å€¼ä¸º0 */
 int LocateElem(SqList L, ElemType e)
 {
 	int i;
@@ -178,36 +178,36 @@ int LocateElem(SqList L, ElemType e)
 	return i + 1;
 }
 
-/*ListInsert(&L, i, e) //²åÈë²Ù×÷
-³õÊ¼Ìõ¼ş£ºË³ĞòÏßĞÔ±íLÒÑ´æÔÚ£¬1<=i<=ListLength(L)
-²Ù×÷½á¹û£ºÔÚLÖĞµÚi¸öÎ»ÖÃÖ®Ç°²åÈëĞÂµÄÊı¾İÔªËØe£¬LµÄ³¤¶È¼Ó1*/
+/*ListInsert(&L, i, e) //æ’å…¥æ“ä½œ
+åˆå§‹æ¡ä»¶ï¼šé¡ºåºçº¿æ€§è¡¨Lå·²å­˜åœ¨ï¼Œ1<=i<=ListLength(L)
+æ“ä½œç»“æœï¼šåœ¨Lä¸­ç¬¬iä¸ªä½ç½®ä¹‹å‰æ’å…¥æ–°çš„æ•°æ®å…ƒç´ eï¼ŒLçš„é•¿åº¦åŠ 1*/
 Status ListInsert(SqList *L, int i, ElemType e)
 {
 	int k;
 	if (L->length == MAXSIZE)
-		return ERROR;       //ÏßĞÔ±íÒÑÂú
+		return ERROR;       //çº¿æ€§è¡¨å·²æ»¡
 	if (i<1 || i>L->length + 1)
-		return ERROR;       //i²»ÔÚ·¶Î§ÄÚ
+		return ERROR;       //iä¸åœ¨èŒƒå›´å†…
 	if (i <= L->length)
 	{
 		for (k = L->length - 1; k >= i - 1; k--)
-			L->data[k + 1] = L->data[k];     //²åÈëÊı¾İ²»ÔÚ±íÎ²
+			L->data[k + 1] = L->data[k];     //æ’å…¥æ•°æ®ä¸åœ¨è¡¨å°¾
 	}
 	L->data[i - 1] = e;
 	L->length++;
 	return OK;
 }
 
-/*	ListDelete(&L, i, &e) //É¾³ı²Ù×÷£¬²¢ÓÃe·µ»ØÔªËØµÄÖµ
-³õÊ¼Ìõ¼ş£ºË³ĞòÏßĞÔ±íLÒÑ´æÔÚ£¬1<=i<=ListLength(L)
-²Ù×÷½á¹û£ºÉ¾³ıLÖĞµÄµÚi¸öÊı¾İÔªËØ£¬²¢ÓÃe·µ»ØÆäÖµ£¬LµÄ³¤¶È¼õ1*/
+/*	ListDelete(&L, i, &e) //åˆ é™¤æ“ä½œï¼Œå¹¶ç”¨eè¿”å›å…ƒç´ çš„å€¼
+åˆå§‹æ¡ä»¶ï¼šé¡ºåºçº¿æ€§è¡¨Lå·²å­˜åœ¨ï¼Œ1<=i<=ListLength(L)
+æ“ä½œç»“æœï¼šåˆ é™¤Lä¸­çš„ç¬¬iä¸ªæ•°æ®å…ƒç´ ï¼Œå¹¶ç”¨eè¿”å›å…¶å€¼ï¼ŒLçš„é•¿åº¦å‡1*/
 Status ListDelete(SqList *L, int i, ElemType *e)
 {
 	int k;
 	if (L->length == 0)
-		return ERROR;   //ÏßĞÔ±íÎª¿Õ
+		return ERROR;   //çº¿æ€§è¡¨ä¸ºç©º
 	if (i<1 || i>L->length)
-		return ERROR;   //É¾³ıÎ»ÖÃ²»ÕıÈ·
+		return ERROR;   //åˆ é™¤ä½ç½®ä¸æ­£ç¡®
 	*e = L->data[i - 1];
 	if (i < L->length)
 	{
@@ -220,7 +220,7 @@ Status ListDelete(SqList *L, int i, ElemType *e)
 	}
 }
 
-Status ListTraverse(SqList L)       //¶ÔLµÄÃ¿¸öÊı¾İÊä³ö
+Status ListTraverse(SqList L)       //å¯¹Lçš„æ¯ä¸ªæ•°æ®è¾“å‡º
 {
 	int i;
 	for (i = 0; i < L.length; i++)
@@ -231,7 +231,7 @@ Status ListTraverse(SqList L)       //¶ÔLµÄÃ¿¸öÊı¾İÊä³ö
 	return OK;
 }
 
-void UnionL(SqList *La, SqList Lb)  //°ÑLbÖĞºÍLa²»Í¬µÄÔªËØ²åÈëµ½LaÖĞ
+void UnionL(SqList *La, SqList Lb)  //æŠŠLbä¸­å’ŒLaä¸åŒçš„å…ƒç´ æ’å…¥åˆ°Laä¸­
 {
 	int La_len, Lb_len, i;
 	ElemType e;
